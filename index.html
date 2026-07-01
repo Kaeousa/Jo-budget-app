@@ -312,7 +312,7 @@
     /* ── FABs ── */
     .fab-bar {
       position: fixed; left: 50%; transform: translateX(-50%);
-      bottom: calc(16.8px + env(safe-area-inset-bottom));
+      bottom: calc(6px + env(safe-area-inset-bottom));
       width: calc(100% - 33.6px); max-width: calc(430px - 33.6px);
       background: rgba(255,255,255,0.94);
       backdrop-filter: blur(16px) saturate(1.5);
@@ -427,6 +427,10 @@
       outline: none; margin-bottom: 16.8px; transition: border-color .15s;
     }
     .text-field:focus { border-color: var(--primary); background: #fff; }
+    input[type="date"].text-field {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; max-width: 100%; min-width: 0;
+    }
 
     .save-btn {
       width: 100%; padding: 18px; background: var(--navy); color: #fff;
