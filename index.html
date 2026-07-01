@@ -1105,7 +1105,7 @@ function renderSheet() {
         <div class="amount-field">
           <span class="sym">฿</span>
           <input id="amtInput" type="number" inputmode="decimal" placeholder="0.00"
-            value="${state.formAmount}" oninput="state.formAmount=this.value" autofocus />
+            value="${state.formAmount}" oninput="state.formAmount=this.value" />
         </div>
         <div class="field-label" style="display:flex;align-items:center;justify-content:space-between">
           <span>หมวดหมู่</span>
@@ -1139,7 +1139,7 @@ function renderStartSheet() {
         <div class="amount-field">
           <span class="sym">฿</span>
           <input id="startInput" type="number" inputmode="decimal" placeholder="0.00"
-            value="${state.startingBalance||""}" autofocus />
+            value="${state.startingBalance||""}" />
         </div>
         <button class="save-btn" onclick="saveStartingBalance(document.getElementById('startInput').value)">
           ${SVG.save} บันทึก
@@ -1289,7 +1289,7 @@ function openSheet(mode)    {
   state.formAmount = ""; state.formNote = ""; state.formDate = todayISO();
   state.sheetOpen = true;
   renderModals();
-  setTimeout(() => { const i = document.getElementById("amtInput"); if (i) i.focus(); }, 100);
+  setTimeout(() => { const i = document.getElementById("amtInput"); if (i) i.focus({ preventScroll: true }); }, 100);
 }
 function openEditSheet(id) {
   const t = state.transactions.find(x => x.id === id);
@@ -1302,7 +1302,7 @@ function openEditSheet(id) {
   state.formDate = t.date;
   state.sheetOpen = true;
   renderModals();
-  setTimeout(() => { const i = document.getElementById("amtInput"); if (i) i.focus(); }, 100);
+  setTimeout(() => { const i = document.getElementById("amtInput"); if (i) i.focus({ preventScroll: true }); }, 100);
 }
 function closeSheet(e) {
   if (!e || e.target.classList.contains("sheet-backdrop")) {
@@ -1313,7 +1313,10 @@ function closeSheet(e) {
   }
 }
 
-function openStartSheet()   { state.startSheetOpen = true;  renderModals(); }
+function openStartSheet()   {
+  state.startSheetOpen = true;  renderModals();
+  setTimeout(() => { const i = document.getElementById("startInput"); if (i) i.focus({ preventScroll: true }); }, 100);
+}
 function closeStartSheet(e) {
   if (!e || e.target.classList.contains("sheet-backdrop")) {
     state.startSheetOpen = false;
