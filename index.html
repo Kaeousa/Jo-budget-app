@@ -263,7 +263,7 @@
 
     /* ── Summary ── */
     .cat-section { margin-top: 7.2px; }
-    .insight-section { margin-bottom: 21.6px; }
+    .insight-section { margin-top: 19.2px; margin-bottom: 21.6px; }
     .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9.6px; margin-top: 12px; }
     .insight-card {
       background: var(--surface); border: 1px solid var(--border);
@@ -612,7 +612,7 @@ function escapeHtml(str) {
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   }[ch]));
 }
-function fmt(n) { return Number.isFinite(n) ? n.toLocaleString("th-TH",{minimumFractionDigits:2,maximumFractionDigits:2}) : "0.00"; }
+function fmt(n) { return Number.isFinite(n) ? n.toLocaleString("th-TH",{minimumFractionDigits:0,maximumFractionDigits:0}) : "0"; }
 function thaiDate(iso) {
   if (!iso) return "";
   const [y,m,d] = iso.split("-").map(Number);
