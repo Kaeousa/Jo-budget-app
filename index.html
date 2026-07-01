@@ -311,17 +311,19 @@
 
     /* ── FABs ── */
     .fab-bar {
-      position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
-      width: 100%; max-width: 430px;
-      background: rgba(255,255,255,0.92);
+      position: fixed; left: 50%; transform: translateX(-50%);
+      bottom: calc(16.8px + env(safe-area-inset-bottom));
+      width: calc(100% - 33.6px); max-width: calc(430px - 33.6px);
+      background: rgba(255,255,255,0.94);
       backdrop-filter: blur(16px) saturate(1.5);
-      border-top: 1.2px solid var(--border);
-      border-radius: 28.8px 28.8px 0 0;
-      padding: 12px 16.8px calc(12px + env(safe-area-inset-bottom));
-      display: flex; gap: 12px; z-index: 90;
+      border: 1.2px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      padding: 12px 14px;
+      display: flex; justify-content: center; gap: 12px; z-index: 90;
     }
     .fab {
-      flex: 1; height: 44px; border-radius: var(--radius-md); border: none;
+      flex: 1; max-width: 220px; height: 44px; border-radius: var(--radius-md); border: none;
       display: flex; align-items: center; justify-content: center; gap: 7.2px;
       font-family: 'Prompt', sans-serif; font-size: 16px; font-weight: 600;
       cursor: pointer; transition: all .15s; letter-spacing: .2px;
