@@ -60,6 +60,11 @@
       padding: 16px 14px 0;
     }
 
+    /* ── ขยายสัดส่วนทุกอย่างให้เต็มตาขึ้นบนจอมือถือ (ไม่กระทบพรีวิวบนคอมพิวเตอร์) ── */
+    @media (max-width: 480px) {
+      body { zoom: 1.15; }
+    }
+
     /* ── Hero ── */
     .hero {
       background: linear-gradient(145deg, #074b90 0%, #1a7fa8 55%, #3fd2c7 100%);
@@ -642,7 +647,7 @@ function showToast(msg, dur=2500) {
 }
 
 // ⚠️ ใส่ URL ของ Apps Script Web App ที่ deploy แล้ว (ลงท้ายด้วย /exec)
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwmLXtUEvw8NCrdYvUY4_egoWCEeLriUl6njLCbwf_vXYp5bDk7NU50Z38kp0CCFc1C_A/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/XXXXXXXXXXXXXXXXXXXXXXXXXXX/exec";
 
 function gasCall(fn, ...args) {
   return fetch(APPS_SCRIPT_URL, {
